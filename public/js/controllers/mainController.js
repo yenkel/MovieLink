@@ -59,10 +59,10 @@ app.controller('mainController', function($scope, service) {
     $scope.checkActor = function(actor) {
         console.log($scope.links.actors.indexOf({ id: actor.id }));
         if ($scope.cast.indexOf(actor.id) == -1) {
-            console.log("the actor isn't in the cast");
+            alert("The actor isn't in the cast");
             return false;
         } else if ($scope.links.ids.indexOf(actor.id) != -1) {
-            console.log("you already picked this actor");
+            alert("You already picked this actor");
             return false;
         } else {
             service.searchPersonId(actor.id);
@@ -78,10 +78,10 @@ app.controller('mainController', function($scope, service) {
     //then toggle to have user look for next actor link
     $scope.checkMovie = function(movie) {
         if ($scope.credits.indexOf(movie.id) == -1) {
-            console.log("the actor isn't in that movie");
+            alert("The actor isn't in that movie");
             return false;
         } else if ($scope.links.ids.indexOf(movie.id) != -1) {
-            console.log("you already picked this movie");
+            alert("you already picked this movie");
             return false;
         } else {
             service.searchCast(movie.id);
