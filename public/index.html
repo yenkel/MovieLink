@@ -127,14 +127,14 @@
         <div class="col-md-6 text-center links-display">
             <h2>Display for links:</h2>
             <div class="paddingLeft">
-            <div class="content col-md-12 text-center">
-                <div ng-repeat="item in links.movies" class="content col-md-6">
-                    <h5 class="circle">{{item.title}}</h5>
+                <div class="content col-md-12 text-center">
+                    <div ng-repeat="item in links.movies" class="content col-md-6">
+                        <h5 class="circle">{{item.title}}</h5>
+                    </div>
+                    <div ng-repeat="itemActors in links.actors" class="content col-md-6">
+                        <h5 class="circle">{{itemActors.name}}</h5>
+                    </div>
                 </div>
-                <div ng-repeat="itemActors in links.actors" class="content col-md-6">
-                    <h5 class="circle">{{itemActors.name}}</h5>
-                </div>
-            </div>
             </div>
         </div>
 
