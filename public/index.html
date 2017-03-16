@@ -2,12 +2,11 @@
 <html ng-app="MovieLink">
 
 <head>
-    <!-- *reminder to put dependency links* -->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css"
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    
     <title>MovieLink</title>
 </head>
 
@@ -26,7 +25,7 @@
         <div class="content col-md-6"> <!-- div for starting movie search-->
 
             <!--intro text-->
-            <h2>Welcome,<br><br>please search a movie title,<br>or select movie on right,<br>to create first link:</h2>
+            <h2>Welcome,<br><br>please search a movie title,<br>or select movie on right,<br>to create first <span class="nice-green">link</span>:</h2>
             <br><br>
 
             <!-- search and input  -->
@@ -43,7 +42,7 @@
                      ng-click="searchCast(this.film.id); addMovieLink(this.film); playing();"
                      class="circle">
 
-                    <h5><i class="fa fa-film fa-1x"> </i> {{film.title}}({{film.release_date | limitTo: 4}})</h5>
+                    <h5><i class="fa fa-film fa-1x"> </i><br> {{film.title}}({{film.release_date | limitTo: 4}})</h5>
                 </div>
             </div>
         </div> <!-- end div for starting movie search-->
@@ -60,8 +59,8 @@
             <div class="row populars">
                 <br><br>
                 <div ng-repeat="movie in displayRightList | limitTo: 10">
-                    <h4 ng-click="searchCast(this.movie.id); addMovieLink(this.movie); playing();"><i
-                            class="fa fa-film"></i> {{movie.title}}({{movie.release_date | limitTo: 4}})</h4>
+                    <h4 ng-click="searchCast(this.movie.id); addMovieLink(this.movie); playing();">
+                    <i class="fa fa-film fa-1x"> </i> {{movie.title}}({{movie.release_date | limitTo: 4}})</h4>
                 </div>
             </div>
 
@@ -80,7 +79,7 @@
                 <h2>Now search for a cast member of<br></h2>
                 <h2>{{links.movies[links.movies.length-1].title}} ({{links.movies[links.movies.length-1].year | limitTo:
                     4}})<br></h2>
-                <h2>for the next link:<br></h2><br>
+                <h2>for the next <span class="nice-green">link</span>:<br></h2><br>
                 <!-- input for actor search-->
                 <div class="input-group">
                     <input type="text" ng-model="actorName" class="form-control" placeholder="Actor or actress">
@@ -92,7 +91,7 @@
                 <div class="spaceBtw"><!--this div is to add padding between the circles and the input-->
                     <div ng-repeat="actor in resultByActor | limitTo:5"
                          ng-click="checkActor(this.actor);" class="circle">
-                        <h5 class="space"><i class="fa fa-user fa-1x"> </i> {{actor.name}}</h5>
+                        <h5 class="space"><i class="fa fa-user fa-1x"></i><br>{{actor.name}}</h5>
                     </div>
                 </div>
 
@@ -102,7 +101,7 @@
             <div ng-show="nextMovie">
                 <h2>Now search for another credit of <br></h2>
                 <h2>{{links.actors[links.actors.length-1].name}} <br></h2>
-                <h2>for the next link:</h2><br>
+                <h2>for the next <span class="nice-green">link</span>:</h2><br>
                 <!-- search and select for next movie link-->
                 <div class="input-group">
                     <input type="text" class="form-control" ng-model="titleMovie" placeholder="Movie title">
@@ -114,7 +113,7 @@
                 <div class="spaceBtw"><!--this div is to add padding between the circles and the input-->
                 <div ng-repeat="film in resultByTitle | limitTo:5"
                      ng-click="checkMovie(this.film); clearMovieInput()" class="circle">
-                    <h5><i class="fa fa-film"></i> {{film.title}}
+                    <h5><i class="fa fa-film fa-1x"> </i><br>{{film.title}}
                         ({{film.release_date | limitTo: 4}})</h5>
                 </div>
                 </div>
@@ -125,24 +124,29 @@
 
 
         <div class="col-md-6 text-center links-display">
-            <h2>Display for links:</h2>
-            <div class="paddingLeft">
-                <div class="content col-md-12 text-center">
-                    <div ng-repeat="item in links.movies" class="content col-md-6">
-                        <h5 class="circle">{{item.title}}</h5>
+            <h2 class="nice-green">LINKS</h2>
+            
+                <div class="row text-center">
+                    <div class="content col-md-6">
+                        <div ng-repeat="movie in links.movies" class="content col-md-6 text-center">
+                            <h5 class="circle"><i class="fa fa-film fa-1x"> </i><br>{{movie.title}}<br>({{movie.year | limitTo: 4}})</h5>
+                        </div>
                     </div>
-                    <div ng-repeat="itemActors in links.actors" class="content col-md-6">
-                        <h5 class="circle">{{itemActors.name}}</h5>
+                    <div class="content col-md-6 text-center">
+                        <div ng-repeat="actor in links.actors" class="content col-md-6">
+                            <h5 class="circle" ng-click="test()"><i class="fa fa-user fa-1x"></i><br>{{actor.name}}</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
+            
         </div>
 
     </div>
 </section>
-<hr>
+
+<hr class="nice-green">
 <footer>
-<h4 class="text-center"> Coded by team "Trello, World"</h4>
+<h4 class="text-center nice-green"> Coded by team "Trello, World"</h4>
 </footer>
 
 <!-- scripts for node modules, controller, service, app -->
