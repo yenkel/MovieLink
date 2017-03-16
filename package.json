@@ -1,0 +1,25 @@
+{
+  "name": "movielink",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.2",
+    "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",
+    "chart.js": "^2.5.0",
+    "d3": "^4.7.3",
+    "express": "^4.15.2",
+    "font-awesome": "^4.7.0",
+    "mongoose": "^4.9.0"
+  },
+  "repository": {},
+  "bugs": {},
+  "devDependencies": {},
+  "description": ""
+}
