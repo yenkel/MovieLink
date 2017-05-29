@@ -6,7 +6,7 @@ var Actor = require("./public/js/models/actorModel.js");
 
 //use mongoose dependancy
 var mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost/collection");
+mongoose.connect(process.env.CONNECTION_STRING || "mongodb://localhost/collection");
 
 
 //use body parser middleware
@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //declare port (heroku publication)
-var port = /*process.env.PORT ||*/ 8080;
+var port = process.env.PORT || 8080;
 
 //setup directories for server access
 app.use(express.static('public'));
